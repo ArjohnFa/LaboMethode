@@ -4,33 +4,30 @@
     {
         static void Main(string[] args)
         {
-            exer1();
-            exer2();
+            int choix = choisirOptionMenu();
+
+            Console.WriteLine($"Vous avez choisi l'option {choix}!");
         }
-        static void exer1()
+
+        static int choisirOptionMenu()
         {
-            int ctndwn = 0;
+            int choix = 0;
+            string menu = "Choisir 1 pour un jeu du Pendu, 2 pour TicTacToe et 3 pour quitter le jeu";
+            bool valide = false;
 
-            Console.WriteLine("Give me a number and I shall count down to 0 :");
-            int.TryParse(Console.ReadLine(), out ctndwn);
-
-            while(ctndwn > 0)
+            while (!valide)
             {
-                ctndwn--;
-                Console.WriteLine(ctndwn);
-                Thread.Sleep(1000);
+                Console.Clear();
+                Console.WriteLine(menu);
+                int.TryParse(Console.ReadLine(), out choix);
+
+                if(choix == 1 || choix ==2 || choix == 3)
+                {
+                    valide = true;
+                }
             }
-        }
-        static void exer2()
-        {
-            int[] Vals = { };
-            int Val = 0;
 
-            Console.WriteLine("Give me numbers and I shall count how " +
-                              "many negatives and positives are there :");
-
-            int.TryParse(Console.ReadLine(), out Val);
-            
+            return choix;
         }
     }
 }
